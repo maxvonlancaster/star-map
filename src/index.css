@@ -1,0 +1,17 @@
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: black;
+}
+
+.star-label {
+  color: white;
+  font-size: 13px;
+  min-width: 16px;
+  min-height: 16px;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
