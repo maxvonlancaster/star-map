@@ -1,17 +1,38 @@
 import { Sphere, Html } from '@react-three/drei'
 import { useState } from 'react'
 
-export default function Star({ position, name, color, size, importance }) {
-  const [selected, setSelected] = useState(false)
+const starName = (activeLayer, name, fiction) => {
+  if (! activeLayer) {
+    return name;
+  }
+  let info = fiction[activeLayer];
+  if (info[0] == '') {
+    return name;
+  }
+  return info[0] + '(' + name + ')';
+}
+
+
+
+export default function Star({ 
+  position, name, color, size, importance, description, fiction,
+  isSelected,
+  onPointerDown,
+  activeLayer }) {
+
+  const handleSelect = (e) => {
+    e.stopPropagation()
+    onPointerDown(e)
+  }
 
   return (
     <group position={position}>
       <Sphere
         args={[0.1 + 0.05 * size, 16, 16]}
-        onClick={() => setSelected(!selected)}
+        onPointerDown={handleSelect}
       >
         <meshStandardMaterial
-          color={selected ? 'red' : color}
+          color={isSelected ? 'red' : color}
           emissive={color}
           emissiveIntensity={0.6}
         />
@@ -21,9 +42,15 @@ export default function Star({ position, name, color, size, importance }) {
         billboard
         // distanceFactor={200}
         occlude={false}
-        transform={false}>
-            <div className="star-label" style={{ fontSize: `${14 - importance * 1.5 }px` }}>
-                {name}
+        transform={false}
+        pointerEvents="auto">
+            <div className="star-label" style={{ 
+              fontSize: `${14 - importance * 1.5 }px`,
+              cursor: 'pointer',
+              pointerEvents: 'auto',
+              userSelect: 'none' }} 
+              onClick={handleSelect}>
+                {starName(activeLayer, name, fiction)}
             </div>
       </Html>
       

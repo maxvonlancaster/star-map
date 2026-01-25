@@ -15,3 +15,37 @@ html, body, #root {
   pointer-events: none;
   user-select: none;
 }
+
+.ui-panel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+
+  background: rgba(10, 20, 40, 0.85);
+  color: #e6f0ff;
+
+  padding: 12px 14px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(120,180,255,0.6);
+  box-shadow: 0 0 12px rgba(120,180,255,0.4);
+
+  font-family: sans-serif;
+}
+
+.ui-panel label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 6px;
+  opacity: 0.8;
+}
+
+.ui-panel select {
+  width: 160px;
+  background: rgba(20,40,80,0.9);
+  color: white;
+  border: 1px solid rgba(120,180,255,0.6);
+  border-radius: 6px;
+  padding: 6px;
+}
