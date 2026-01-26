@@ -278,6 +278,14 @@ const stars = [
             'star-trek': [], 'dune': [], 'other': ['' ,'Acrux is represented in the flags of Australia, New Zealand, Samoa, and Papua New Guinea as one of five stars that compose the Southern Cross.']
         },
         exoplanets: {}
+    },
+    {
+        id: 41, name: 'Zeta Reticuli', position: [4.22, 28.84, 26.36], color: colors.yellow, size: 2, importance: 3,
+        description: 'A wide binary star system, both stars are solar analogs that have characteristics similar to those of the Sun.',
+        fiction: {
+            'star-trek': [], 'dune': [], 'other': ['' ,'Considered to be place of origin of UFOs. Also setting of the Alien movies.']
+        },
+        exoplanets: {}
     }
 ]
 
