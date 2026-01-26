@@ -21,24 +21,24 @@ function App() {
   const handleStarSelect = (star) => {
     setTarget(star.position)
     requestAnimationFrame(() => {
-    if (!controlsRef.current) return
+      if (!controlsRef.current) return
 
-    const controls = controlsRef.current
-    const camera = controls.object
+      const controls = controlsRef.current
+      const camera = controls.object
 
-    const dir = camera.position
-      .clone()
-      .sub(controls.target)
-      .normalize()
+      const dir = camera.position
+        .clone()
+        .sub(controls.target)
+        .normalize()
 
-    const desiredDistance = 5  
+      const desiredDistance = 5  
 
-    camera.position
-      .copy(controls.target)
-      .add(dir.multiplyScalar(desiredDistance))
+      camera.position
+        .copy(controls.target)
+        .add(dir.multiplyScalar(desiredDistance))
 
-    controls.update()
-  })
+      controls.update()
+    })
   }
 
   return (

@@ -246,6 +246,38 @@ const stars = [
             'star-trek': ['', 'In 2257, during the first Federation-Klingon War, this star\'s system was partially occupied by the Klingons.'], 'dune': [], 'other': []
         },
         exoplanets: {}
+    },
+    {
+        id: 37, name: 'Fomalhaut', position: [9.93, 22.64, -3.71], color: colors.white, size: 3, importance: 3,
+        description: 'Is classified as a Vega-like star that emits excess infrared radiation, indicating it is surrounded by a circumstellar disk',
+        fiction: {
+            'star-trek': [], 'dune': [], 'other': []
+        },
+        exoplanets: {}
+    },
+    {
+        id: 38, name: 'Barnard\'s Star', position: [4.96, -1.45, -2.98], color: colors.red, size: 1, importance: 4,
+        description: 'Small red dwarf star, one of the closest stars to the Sun at a distance of about 6 light-years',
+        fiction: {
+            'star-trek': [], 'dune': [], 'other': ['' ,'In Jack Williamson\'s science fiction novel The Space Legion, the only planet orbiting Barnard\'s Star is inhabited by an ancient civilization of “Medusians” who have decided to conquer the Solar System and destroy humanity.']
+        },
+        exoplanets: {}
+    },
+    {
+        id: 39, name: 'Altair', position: [11.09, 2.59, -12.21], color: colors.white, size: 3, importance: 3,
+        description: 'The brightest star in the equatorial constellation of Aquila, an A-type main-sequence star, rotates rapidly, with a velocity at the equator of approximately 286 km/s',
+        fiction: {
+            'star-trek': [], 'dune': [], 'other': ['' ,'Destination of spaceship in Forbidden Planet (1956)']
+        },
+        exoplanets: {}
+    },
+    {
+        id: 40, name: 'Acrux', position: [161.11, 2.03, 277.63], color: colors.white, size: 1, importance: 2,
+        description: 'The brightest star in the constellation of Crux. To the naked eye Acrux appears as a single star, but it is actually a multiple star system containing six components.',
+        fiction: {
+            'star-trek': [], 'dune': [], 'other': ['' ,'Acrux is represented in the flags of Australia, New Zealand, Samoa, and Papua New Guinea as one of five stars that compose the Southern Cross.']
+        },
+        exoplanets: {}
     }
 ]
 
