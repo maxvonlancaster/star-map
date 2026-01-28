@@ -3,7 +3,7 @@ import { Grid } from '@react-three/drei'
 export default function GalacticGrid() {
   return (
     <Grid
-      args={[100000, 100000]}
+      args={[10000, 10000]}
       cellSize={20}
       cellThickness={0.9}
       cellColor="#222"

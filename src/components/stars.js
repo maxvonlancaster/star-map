@@ -465,6 +465,15 @@ const stars = [
             'other': []
         },
         exoplanets: []
+    },
+    {
+        id: 60, name: 'Antares', position: [525.86, -142.95, 74.4], color: colors.red, size: 5, importance: 1,
+        description: 'The brightest star in the constellation of Scorpius.',
+        fiction: {
+            'star-trek': [], 'dune': [], 
+            'other': ['', 'In the hitchhiker\'s guide to the galaxy, it is home to the disgusting and wildly expensive Antarean parakeet glands and the Antarean Mozaic Lizards, twenty thousand of which are used to cover the bar at Milliways.']
+        },
+        exoplanets: []
     }
 ]
 
