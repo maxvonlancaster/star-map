@@ -31,20 +31,21 @@ const stars = [
     },
     {
         id: 4, name: 'Sirius', position: [-6.04, 1.39, 6.52], color: colors.white, size: 4, importance: 3,
-        description: '',
-        fiction: { 'star-trek': [], 'dune': [], 'other': [] },
+        description: 'The brightest star in the night sky.',
+        fiction: { 'star-trek': [], 'dune': [], 'other': ['', 'Home of the visitors from "V". Also headquarters of the Sirius Cybernetics Corporation from The Hitchhiker\'s Guide to the Galaxy.'] },
         exoplanets: []
     },
     {
         id: 5, name: 'Tau Ceti', position: [-3.40, 11.50, -0.41], color: colors.yellow, size: 3, importance: 3,
         description: '',
-        fiction: { 'star-trek': ['Tellar', ''], 'dune': [], 'other': ['', 'In Andy Weir\'s novel The Ave Maria Project, the main character flies to the Tau Ceti system to save Earth.'] },
+        fiction: { 'star-trek': [], 'dune': [], 'other': ['', 'In Andy Weir\'s novel The Ave Maria Project, the main character flies to the Tau Ceti system to save Earth.'] },
         exoplanets: []
     },
     {
         id: 6, name: 'Procyon', position: [-8.92, -2.47, 5.95], color: colors.lightyellow, size: 3, importance: 3,
         description: '',
-        fiction: { 'star-trek': ['Andoria', 'Homeworld of the Andorians and the Aenar, founding planet of Federation.'], 'dune': [], 'other': [] },
+        fiction: { 'star-trek': ['Andoria', 'Homeworld of the Andorians and the Aenar, founding planet of Federation.'], 
+            'dune': [], 'other': ['Arcadia', 'On February 9, 2531, Arcadia was attacked by the Covenant, leading to a brief, yet brutal, battle between the United Nations Space Command and the Covenant.'] },
         exoplanets: []
     },
     {
@@ -204,7 +205,9 @@ const stars = [
         id: 30, name: 'Delta Pavonis', position: [14.51, 10.66, 8.45], color: colors.yellow, size: 3, importance: 3,
         description: 'Single star in the constellation of Pavo',
         fiction: {
-            'star-trek': [], 'dune': ['Caladan', 'Caladan - the third planet orbiting the star Delta Pavonis. A lush oceanic world, and the ancestral home of House Atreides.'], 'other': []
+            'star-trek': ['Benzite', 'A warp-capable humanoid species from the Beta Quadrant'], 
+            'dune': ['Caladan', 'Caladan - the third planet orbiting the star Delta Pavonis. A lush oceanic world, and the ancestral home of House Atreides.'], 
+            'other': ['Resurgam', 'Terrestrial planet orbiting Delta Pavonis in the Revelation Space series by Alastair Reynolds.']
         },
         exoplanets: []
     },
@@ -284,7 +287,7 @@ const stars = [
         id: 39, name: 'Altair', position: [11.09, 2.59, -12.21], color: colors.white, size: 3, importance: 3,
         description: 'The brightest star in the equatorial constellation of Aquila, an A-type main-sequence star, rotates rapidly, with a velocity at the equator of approximately 286 km/s',
         fiction: {
-            'star-trek': [], 'dune': ['Rima', 'Planet Rima'], 'other': ['' ,'Destination of spaceship in Forbidden Planet (1956)']
+            'star-trek': ['', 'Altair IV is referenced in multiple episodes'], 'dune': ['Rima', 'Planet Rima'], 'other': ['' ,'Destination of spaceship in Forbidden Planet (1956)']
         },
         exoplanets: []
     },
@@ -472,6 +475,78 @@ const stars = [
         fiction: {
             'star-trek': [], 'dune': [], 
             'other': ['', 'In the hitchhiker\'s guide to the galaxy, it is home to the disgusting and wildly expensive Antarean parakeet glands and the Antarean Mozaic Lizards, twenty thousand of which are used to cover the bar at Milliways.']
+        },
+        exoplanets: []
+    },
+    {
+        id: 61, name: 'Betelgeuse', position: [-509.35, 85.34, 183.25], color: colors.red, size: 5, importance: 1,
+        description: 'Betelgeuse is a red supergiant star in the equatorial constellation of Orion.',
+        fiction: {
+            'star-trek': ['', 'The Betelgeusians were an ornithoid species, who by the mid-2270s were diplomatically associated with the United Federation of Planets'], 'dune': [], 
+            'other': ['', 'Mentioned in "Tears in Rain" monologue in the film Blade Runner.']
+        },
+        exoplanets: []
+    },
+    {
+        id: 62, name: '61 Cygni', position: [1.52, 1.16, -11.24], color: colors.orange, size: 2, importance: 4,
+        description: '61 Cygni is a binary star system in the northern constellation Cygnus, consisting of a pair of K-type dwarf stars that orbit each other in a period of about 659 years',
+        fiction: {
+            'star-trek': ['Tellar Prime', 'The homeworld of the Tellarites, a warp-capable humanoid species. Renowned for its healing bogs, which were used for therapeutic mud baths.'], 'dune': [], 
+            'other': ['', '']
+        },
+        exoplanets: []
+    },
+    {
+        id: 62, name: 'Iota Horologii', position: [-0.62, 48.08, 29.66], color: colors.yellow, size: 3, importance: 4,
+        description: 'A star in the Horologium constellation.',
+        fiction: {
+            'star-trek': [], 'dune': [], 
+            'other': ['', 'Halo']
+        },
+        exoplanets: []
+    },
+    {
+        id: 63, name: 'LHS 2520', position: [8.64, -29.07, 26.08], color: colors.red, size: 1, importance: 4,
+        description: 'A red dwarf star in the constellation Corvus',
+        fiction: {
+            'star-trek': [], 'dune': [], 
+            'other': ['Krypton', 'Supermans homeworld in the DC Comics universe.']
+        },
+        exoplanets: []
+    },
+    {
+        id: 64, name: '61 Ursae Majoris', position: [-8.94, -29.89, 0.55], color: colors.yellow, size: 3, importance: 3,
+        description: 'A single star in the northern circumpolar constellation of Ursa Major.',
+        fiction: {
+            'star-trek': ['Archer IV', 'The planet Archer IV was named for Jonathan Archer, the captain of the first Earth starship – Enterprise NX-01 – to chart the star system close up'], 'dune': [], 
+            'other': ['Kzin', 'Kzin homeworld from Larry Niven\'s Known Space series, huge tiger-like hostile species.']
+        },
+        exoplanets: []
+    },
+    {
+        id: 65, name: 'Epsilon Indi', position: [7.34, 8.92, 3.24], color: colors.orange, size: 2, importance: 4,
+        description: 'Consists of a K-type main-sequence star, ε Indi A, and two brown dwarfs, ε Indi Ba and ε Indi Bb, in a wide orbit around it',
+        fiction: {
+            'star-trek': [], 'dune': [], 
+            'other': ['Harvest', 'Harvest was the first colony to be attacked by the Covenant and the first human world to be glassed in Halo series.']
+        },
+        exoplanets: []
+    },
+    {
+        id: 66, name: 'Aldebaran', position: [-62.85, 23.19, 1.07], color: colors.red, size: 5, importance: 2,
+        description: 'Aldebaran is a red giant, meaning that it is cooler than the Sun with a surface temperature of 3,900 K, but its radius is about 45 times the Sun\'s, so it is over 400 times as luminous.',
+        fiction: {
+            'star-trek': ['', 'Aldebaran whisky is loved by Scotty'], 'dune': [], 
+            'other': []
+        },
+        exoplanets: []
+    },
+    {
+        id: 67, name: 'Algol', position: [-77.85, 24.17, -46.82], color: colors.blue, size: 5, importance: 2,
+        description: 'Known colloquially as the Demon Star, is a bright multiple star in the constellation of Perseus and one of the first non-nova variable stars to be discovered.',
+        fiction: {
+            'star-trek': ['', 'Home of Algolians'], 'dune': [], 
+            'other': ['', 'Home to Algolian Suntiger in The Hitchhiker\'s Guide to the Galaxy.']
         },
         exoplanets: []
     }

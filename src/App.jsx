@@ -91,3 +91,17 @@ function App() {
 }
 
 export default App
+
+
+// TODO
+// - refactor 
+// - fix issue with fantom background stars 
+// - fix goto double click
+// - exoplanets view in system on click 
+// - distance between stars measurement
+// - other items: nebulae, black holes, pleyades cluster, aquila rift
+// - federation blob 
+// - optimize performance for large datasets 
+// - search for stars
+// - goto home (sol)
+// - fix issue on zoom redundant stars appearing
