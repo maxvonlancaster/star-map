@@ -4,7 +4,9 @@ export default [
     position: [-10, 0, 0],
     radius: 50,
     intensity: 1.0,
-    color: '#0096FF'
+    color: '#0096FF',
+    subregions: [
+      [25, [10, 10, 105]], [35, [95, -20, -30]]]
   },
   {
     text: 'Romulan Star Empire',
@@ -29,17 +31,24 @@ export default [
   },
   {
     text: 'Cardassian Union',
-    position: [-30, 10, -105],
+    position: [-30, 10, -205],
     radius: 30,
     intensity: 1.0,
     color: '#DFFF00'
   },
   {
     text: 'Ferengi Alliance',
-    position: [55, 10, -85],
+    position: [55, 10, -185],
     radius: 15,
     intensity: 1.0,
     color: '#FF00FF'
+  },
+  {
+    text: 'Dominion',
+    position: [42000, 25, -20000],
+    radius: 450,
+    intensity: 1.0,
+    color: '#ff3dffff'
   }
 ]
 

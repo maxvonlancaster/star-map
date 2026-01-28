@@ -60,7 +60,7 @@ function App() {
       </div>
 
   <Canvas
-      camera={{ position: [target[0] - 30, target[1] + 10, target[2]], fov: 75}}
+      camera={{ position: [target[0] - 30, target[1] + 10, target[2]], fov: 75, far: 200000 }}
       style={{ background: 'black' }}
       onPointerMissed={() => setSelectedStar(null)}
     >

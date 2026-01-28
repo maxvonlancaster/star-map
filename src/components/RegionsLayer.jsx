@@ -29,6 +29,24 @@ export default function RegionsLayer() {
                         {blob.text}
                     </div>
               </Html>
+
+        {/* {blob.subregions && blob.subregions.map((subregion, j) => (
+          <group key={j} position={subregion[1]}>
+            <Sphere
+
+              key={j}
+              args={[subregion[0], 32, 32]}
+            >
+              <meshStandardMaterial
+                color={blob.color}
+                transparent
+                opacity={0.5}
+                emissive={blob.color}
+                emissiveIntensity={blob.intensity}
+              />
+            </Sphere>
+          </group>
+        ))} */}
         </group>
       ))}
     </group>

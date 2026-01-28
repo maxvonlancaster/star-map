@@ -5,7 +5,7 @@ import StarPopup from './StarPopup'
 export default function StarField({ zoom, selectedStar, onStarSelect, activeLayer, handleStarSelect }) {
   return (
     <>
-      {stars.filter(star => star.importance < zoom * (- 1 / 300) + 5 
+      {stars.filter(star => (star.importance === 0 || star.importance < zoom * (- 1 / 300) + 5 )
         && (!activeLayer || (star.fiction[activeLayer][0] || star.fiction[activeLayer][1]))
         && (!star.hide || activeLayer === 'star-trek')).map((star, i) => (
         <Star 
