@@ -492,7 +492,7 @@ const stars = [
         description: '61 Cygni is a binary star system in the northern constellation Cygnus, consisting of a pair of K-type dwarf stars that orbit each other in a period of about 659 years',
         fiction: {
             'star-trek': ['Tellar Prime', 'The homeworld of the Tellarites, a warp-capable humanoid species. Renowned for its healing bogs, which were used for therapeutic mud baths.'], 'dune': [], 
-            'other': ['', '']
+            'other': ['', 'Home to aliens of the Great Circle in Andromeda: A Space-Age Tale by Ivan Yefremov.']
         },
         exoplanets: []
     },
