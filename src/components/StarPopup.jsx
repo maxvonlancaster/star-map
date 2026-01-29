@@ -48,7 +48,8 @@ function StarPopup({ star, activeLayer, handleStarSelect }) {
           inset 0 0 8px rgba(120,180,255,0.35)
         `,
         transform: 'scale(1.15)',
-        whiteSpace: 'nowrap',
+        whiteSpace: 'normal',
+        minWidth: '260px',
         pointerEvents: 'none',
         backdropFilter: 'blur(6px)'
       }}>

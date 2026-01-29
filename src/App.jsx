@@ -112,3 +112,4 @@ export default App
 // - more trek locations 
 // - firefly system 
 // - zoom of importance calculation improve 
+// - textwrapping in popup +
