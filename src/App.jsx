@@ -107,4 +107,8 @@ export default App
 // - search for stars 
 // - goto home (sol) 
 // - fix issue on zoom redundant stars appearing 
-// - make grid visible from below 
+// - make grid visible from below +
+// - more stars with fiction 
+// - more trek locations 
+// - firefly system 
+// - zoom of importance calculation improve 

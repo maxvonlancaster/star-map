@@ -48,7 +48,7 @@ export default [
     position: [42000, 25, -20000],
     radius: 450,
     intensity: 1.0,
-    color: '#ff3dffff'
+    color: '#fa44fa'
   }
 ]
 
