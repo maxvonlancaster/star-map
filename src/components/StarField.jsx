@@ -1,26 +1,76 @@
-import Star from './Star'
-import stars from './stars'
-import StarPopup from './StarPopup'
+import { useThree, useFrame } from "@react-three/fiber"
+import { useState } from "react"
+import Star from "./Star"
+import stars from "./stars"
+import trekLocations from "./trekLocations"
+import StarPopup from "./StarPopup"
+import * as THREE from "three"
 
-export default function StarField({ zoom, selectedStar, onStarSelect, activeLayer, handleStarSelect }) {
+export default function StarField({
+  zoom,
+  selectedStar,
+  onStarSelect,
+  activeLayer,
+  handleStarSelect,
+}) {
+  const { camera } = useThree()
+
+  const [visibleStars, setVisibleStars] = useState([])
+
+  useFrame(() => {
+    const allStars = [
+      ...stars,
+      ...(activeLayer === "star-trek" ? trekLocations : []),
+    ]
+
+    const visible = allStars.filter((star) => {
+      const pos = new THREE.Vector3(...star.position)
+
+      // Project star position into screen space
+      const projected = pos.clone().project(camera)
+
+      // Condition 1: must be in front of camera
+      const inFront = projected.z < 1
+
+      // Condition 2: must be inside screen bounds
+      const insideScreen =
+        projected.x >= -1 &&
+        projected.x <= 1 &&
+        projected.y >= -1 &&
+        projected.y <= 1
+
+      return inFront && insideScreen
+    })
+
+    setVisibleStars(visible)
+  })
+
   return (
     <>
-      {stars.filter(star => (star.importance === 0 || star.importance < zoom * (- 1 / 300) + 5 )
-        && (!activeLayer || (star.fiction[activeLayer][0] || star.fiction[activeLayer][1]))
-        && (!star.hide || activeLayer === 'star-trek')).map((star, i) => (
-        <Star 
-          key={i} 
-          {...star} 
+      {/* Render only visible stars */}
+      {visibleStars
+        .filter(star => (star.importance === 0 || star.importance < zoom * (- 1 / 300) + 5 )
+        && (!activeLayer || (star.fiction[activeLayer][0] || star.fiction[activeLayer][1]))).map((star) => (
+        <Star
+          key={star.id}
+          {...star}
           isSelected={selectedStar?.id === star.id}
-          onPointerDown={(e) => {
-              e.stopPropagation();
-              onStarSelect(star)
-            }}
           activeLayer={activeLayer}
+          onPointerDown={(e) => {
+            e.stopPropagation()
+            onStarSelect(star)
+          }}
         />
       ))}
 
-      {selectedStar && <StarPopup star={selectedStar} activeLayer={activeLayer} handleStarSelect={handleStarSelect} />}
+      {/* Popup */}
+      {selectedStar && (
+        <StarPopup
+          star={selectedStar}
+          activeLayer={activeLayer}
+          handleStarSelect={handleStarSelect}
+        />
+      )}
     </>
   )
 }

@@ -37,6 +37,8 @@ function App() {
         .copy(controls.target)
         .add(dir.multiplyScalar(desiredDistance))
 
+      camera.updateProjectionMatrix()
+      camera.updateMatrixWorld()
       controls.update()
     })
   }
@@ -60,7 +62,7 @@ function App() {
       </div>
 
   <Canvas
-      camera={{ position: [target[0] - 30, target[1] + 10, target[2]], fov: 75, far: 200000 }}
+      camera={{ position: [- 30, 10, 0], fov: 75, far: 200000, near: 1 }}
       style={{ background: 'black' }}
       onPointerMissed={() => setSelectedStar(null)}
     >
@@ -95,13 +97,14 @@ export default App
 
 // TODO
 // - refactor 
-// - fix issue with fantom background stars 
-// - fix goto double click
+// - fix issue with fantom background stars +
+// - fix goto double click 
 // - exoplanets view in system on click 
-// - distance between stars measurement
-// - other items: nebulae, black holes, pleyades cluster, aquila rift
+// - distance between stars measurement 
+// - other items: nebulae, black holes, pleyades cluster, aquila rift 
 // - federation blob 
 // - optimize performance for large datasets 
-// - search for stars
-// - goto home (sol)
-// - fix issue on zoom redundant stars appearing
+// - search for stars 
+// - goto home (sol) 
+// - fix issue on zoom redundant stars appearing 
+// - make grid visible from below 

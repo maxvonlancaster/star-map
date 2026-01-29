@@ -35,12 +35,13 @@ export default function Star({
           color={isSelected ? 'red' : color}
           emissive={color}
           emissiveIntensity={0.6}
+          // depthWrite={false}
         />
       </Sphere>
 
        <Html 
         billboard
-        // distanceFactor={200}
+        // distanceFactor={50}
         occlude={false}
         transform={false}
         pointerEvents="auto">
