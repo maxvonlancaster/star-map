@@ -67,6 +67,7 @@ export default [
   {
     text: 'Dominion',
     position: [42000, 25, -20000],
+    moveText: 250,
     radius: 450,
     intensity: 1.0,
     color: '#fa44fa'

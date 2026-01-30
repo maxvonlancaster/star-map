@@ -52,7 +52,7 @@ const trekLocations = [
         exoplanets: [], hide: true
     },
     {
-        id: 1008, name: 'Dominion', position: [42000, 25, -20000], color: colors.yellow, size: 3.5, importance: 0,
+        id: 1008, name: 'Dominion', position: [42000, 25, -20000], color: colors.yellow, size: 3.5, importance: 1,
         description: '',
         fiction: {
             'star-trek': ['', 'A major imperialist state in the Gamma Quadrant. Technologically advanced and millennia old, the Dominion was a interstellar oligarchy founded under the absolute rule of a group of Changelings known as the Founders'],

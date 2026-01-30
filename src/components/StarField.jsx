@@ -23,6 +23,9 @@ export default function StarField({
       ...(activeLayer === "star-trek" ? trekLocations : []),
     ]
 
+    let cameraLocation = camera.position;
+    // console.log(cameraLocation);
+
     const visible = allStars.filter((star) => {
       const pos = new THREE.Vector3(...star.position)
 
@@ -39,7 +42,14 @@ export default function StarField({
         projected.y >= -1 &&
         projected.y <= 1
 
-      return inFront && insideScreen
+      const inSector = (star.position[0] < cameraLocation.x + 500 
+        && star.position[0] > cameraLocation.x - 500 
+        && star.position[2] < cameraLocation.z + 500 
+        && star.position[2] > cameraLocation.z - 500 ) 
+        || (star.importance == 0)
+        
+
+      return inFront && insideScreen && inSector
     })
 
     setVisibleStars(visible)
