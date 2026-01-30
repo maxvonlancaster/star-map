@@ -1,11 +1,26 @@
 import { Sphere, Html } from '@react-three/drei'
 import regions from './regions'
+import PolygonRegion from "./PolygonRegion"
 
 export default function RegionsLayer() {
+  const moveText = (blob) => {
+    return blob.moveText ? blob.moveText : 0
+  }
+
   return (
     <group>
-      {regions.map((blob, i) => (
-        <group key={i} position={blob.position}>
+      {regions.map((blob, i) => 
+      ( <group key={i} position={blob.position}>
+      {/* ✅ Special case: polygon region */}
+          {blob.polygon ? (
+            <PolygonRegion
+              vertices={blob.polygon}
+              color={blob.color}
+              intensity={blob.intensity}
+              height={100}
+            />
+          )  : (
+        
         <Sphere
           key={i}
           args={[blob.radius, 32, 32]}
@@ -17,11 +32,11 @@ export default function RegionsLayer() {
             emissive={blob.color}
             emissiveIntensity={blob.intensity}
           />
-        </Sphere>
+        </Sphere>)}
 
         <Html 
                 billboard
-                position={[5, 5, 5]}
+                position={[5 + moveText(blob), 5, 5]}
                 // distanceFactor={200}
                 occlude={false}
                 transform={false}>
