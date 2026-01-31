@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Stars } from '@react-three/drei'
+import { OrbitControls, Environment, Lightformer } from '@react-three/drei'
 import StarField from './components/StarField'
 import GalacticGrid from './components/GalacticGrid'
 import CameraZoomTracker from './components/CameraZoomTracker'
@@ -17,6 +17,7 @@ function App() {
   const [selectedStar, setSelectedStar] = useState(null)
   const [activeLayer, setActiveLayer] = useState(null)
   const [target, setTarget] = useState([0, 0, 0])
+  const [projectionsSelected, projectionsSelect] = useState(false)
 
   const handleStarSelect = (star) => {
     setTarget(star.position)
@@ -44,29 +45,74 @@ function App() {
   }
 
   return (
-    <>
-    {/* UI OVERLAY */}
+    <div className="app-container">
+      {/* UI OVERLAY */}
       <div className="ui-panel">
-        <label>Layer</label>
-        <select
-          value={activeLayer ?? ''}
-          onChange={(e) =>
-            setActiveLayer(e.target.value || null)
-          }
-        >
-          <option value="">None</option>
-          <option value="star-trek">Star Trek</option>
-          <option value="dune">Dune</option>
-          <option value="other">Other</option>
-        </select>
+        <div className="section">
+          <p>
+            3D Map of Real Stars and Sci-Fi Locations
+          </p>
+        </div>
+        <div className="section">
+          <label>Layer</label>
+          <select
+            value={activeLayer ?? ''}
+            onChange={(e) =>
+              setActiveLayer(e.target.value || null)
+            }
+          >
+            <option value="">None</option>
+            <option value="star-trek">Star Trek</option>
+            <option value="dune">Dune</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div className="section">
+          <label>Star projections</label>
+          <input type="checkbox" checked={projectionsSelected} onChange={(e) => projectionsSelect(e.target.checked)} />
+        </div>
+
+        <div className="section">
+          {/* <label>Links</label> */}
+
+          <a
+            href="https://github.com/maxvonlancaster"
+            target="_blank" rel="noopener noreferrer" className="github-link"
+          >
+            Follow me on github
+          </a>
+        </div>
       </div>
 
+<div className='canvas-container'>
   <Canvas
       camera={{ position: [- 30, 10, 0], fov: 75, far: 200000, near: 1 }}
-      style={{ background: 'black' }}
+      style={{ background: '#f0f0f0' }}
       onPointerMissed={() => setSelectedStar(null)}
     >
-      <ambientLight intensity={0.8} />
+      <ambientLight intensity={0.3} color="#ffffff" />
+        <directionalLight 
+          position={[10, 20, 5]} 
+          intensity={1.2}
+          castShadow
+          shadow-mapSize-width={2048}
+          shadow-mapSize-height={2048}
+          shadow-camera-left={-100}
+          shadow-camera-right={100}
+          shadow-camera-top={100}
+          shadow-camera-bottom={-100}
+        />
+        <hemisphereLight 
+          args={["#87CEEB", "#8B7355", 0.3]} // Sky blue to brown earth colors
+        />
+        
+        {/* Point light at the galactic center */}
+        <pointLight 
+          position={[0, 0, 0]} 
+          intensity={0.5} 
+          distance={500}
+          color="#fff4e6"
+        />
 
       {/* Galactic plane */}
       <GalacticGrid />
@@ -78,6 +124,7 @@ function App() {
         selectedStar={selectedStar}
         activeLayer={activeLayer}
         handleStarSelect={handleStarSelect}
+        projections={projectionsSelected}
       />
 
       {/* Fictional Layer */}
@@ -88,7 +135,8 @@ function App() {
 
       <CameraZoomTracker onChange={setZoom} />
     </Canvas>
-    </>
+    </div>
+    </div>
   )
 }
 
@@ -113,3 +161,6 @@ export default App
 // - firefly system 
 // - zoom of importance calculation improve 
 // - textwrapping in popup +
+// - vertical line projections to stars 
+// - realistic lighting 
+// - landing page 

@@ -5,6 +5,7 @@ import stars from "./stars"
 import trekLocations from "./trekLocations"
 import StarPopup from "./StarPopup"
 import * as THREE from "three"
+import { Line } from "@react-three/drei"
 
 export default function StarField({
   zoom,
@@ -12,6 +13,7 @@ export default function StarField({
   onStarSelect,
   activeLayer,
   handleStarSelect,
+  projections
 }) {
   const { camera } = useThree()
 
@@ -42,12 +44,12 @@ export default function StarField({
         projected.y >= -1 &&
         projected.y <= 1
 
-      const inSector = (star.position[0] < cameraLocation.x + 500 
-        && star.position[0] > cameraLocation.x - 500 
-        && star.position[2] < cameraLocation.z + 500 
-        && star.position[2] > cameraLocation.z - 500 ) 
+      const inSector = (star.position[0] < cameraLocation.x + 500
+        && star.position[0] > cameraLocation.x - 500
+        && star.position[2] < cameraLocation.z + 500
+        && star.position[2] > cameraLocation.z - 500)
         || (star.importance == 0)
-        
+
 
       return inFront && insideScreen && inSector
     })
@@ -59,19 +61,35 @@ export default function StarField({
     <>
       {/* Render only visible stars */}
       {visibleStars
-        .filter(star => (star.importance === 0 || star.importance < zoom * (- 1 / 300) + 5 )
-        && (!activeLayer || (star.fiction[activeLayer][0] || star.fiction[activeLayer][1]))).map((star) => (
-        <Star
-          key={star.id}
-          {...star}
-          isSelected={selectedStar?.id === star.id}
-          activeLayer={activeLayer}
-          onPointerDown={(e) => {
-            e.stopPropagation()
-            onStarSelect(star)
-          }}
-        />
-      ))}
+        .filter(star => (star.importance === 0 || star.importance < zoom * (- 1 / 300) + 5)
+          && (!activeLayer || (star.fiction[activeLayer][0] || star.fiction[activeLayer][1]))).map((star) => (
+            <group key={star.id}>
+              <Star
+                key={star.id}
+                {...star}
+                isSelected={selectedStar?.id === star.id}
+                activeLayer={activeLayer}
+                onPointerDown={(e) => {
+                  e.stopPropagation()
+                  onStarSelect(star)
+                }}
+              />
+
+              {/* 📍 Projection Line */}
+              {projections && (
+                <Line
+                  points={[
+                    star.position,
+                    [star.position[0], 0, star.position[2]], // projected point
+                  ]}
+                  lineWidth={1}
+                  color={"blue"}
+                  dashed={true}
+                />
+              )}
+            </group>
+          ))}
+
 
       {/* Popup */}
       {selectedStar && (
