@@ -82,7 +82,7 @@ export default function StarField({
                     star.position,
                     [star.position[0], 0, star.position[2]], // projected point
                   ]}
-                  lineWidth={1}
+                  lineWidth={0.5}
                   color={"blue"}
                   dashed={true}
                 />

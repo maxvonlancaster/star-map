@@ -18,6 +18,8 @@ function App() {
   const [activeLayer, setActiveLayer] = useState(null)
   const [target, setTarget] = useState([0, 0, 0])
   const [projectionsSelected, projectionsSelect] = useState(false)
+  const [panelOpen, setPanelOpen] = useState(true)
+
 
   const handleStarSelect = (star) => {
     setTarget(star.position)
@@ -47,7 +49,8 @@ function App() {
   return (
     <div className="app-container">
       {/* UI OVERLAY */}
-      <div className="ui-panel">
+      <div className={`ui-panel ${panelOpen? "open" : "closed"}`}>
+        
         <div className="section">
           <p>
             3D Map of Real Stars and Sci-Fi Locations
@@ -81,6 +84,12 @@ function App() {
           >
             Follow me on github
           </a>
+          <button className="collapse-btn" onClick={() => {setPanelOpen(!panelOpen)}}>
+            {panelOpen? "<" : ">"}
+          </button>
+        </div>
+        <div className="section">
+          
         </div>
       </div>
 
@@ -161,6 +170,11 @@ export default App
 // - firefly system 
 // - zoom of importance calculation improve 
 // - textwrapping in popup +
-// - vertical line projections to stars 
-// - realistic lighting 
+// - vertical line projections to stars +
+// - realistic lighting +
 // - landing page 
+// - z-index for different items 
+// - fix mobile 
+// - star names different font 
+// - think of different background 
+// - sidebar make collapsable 
